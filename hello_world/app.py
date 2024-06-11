@@ -9,7 +9,7 @@ def lambda_handler(event, context):
                     <title>Lambda Test Page</title>
                 </head>
                 <body>
-                    <h1>Hello Lambda!</h1>
+                    <h1>Hello from Lambda!</h1>
                 </body>
             </html>
             """
