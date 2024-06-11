@@ -6,18 +6,19 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-      - name: Build
+      - name: Configure SAM
         uses: aws-actions/setup-sam@v2
         with:
           use-installer: true
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Configure
+      - name: Configure AWS
         uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-      - run: sam build --use-container
+      - name: Build
+        run: sam build --use-container
       - name: Configure CodeQL
         uses: github/codeql-action/init@v3
         with:
@@ -28,3 +29,8 @@ jobs:
         run: sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --region us-east-1
       - name: Release
         uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
