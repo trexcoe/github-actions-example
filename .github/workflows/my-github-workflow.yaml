@@ -34,7 +34,7 @@ jobs:
           scheme: semver
           increment: patch
       - name: Show Endpoint
-        run: sam list endpoints
+        run: sam list endpoints --output json
       - name: Release
         uses: actions/create-release@v1
         env:
