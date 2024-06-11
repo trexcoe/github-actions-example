@@ -27,7 +27,7 @@ jobs:
         uses: github/codeql-action/analyze@v3
       - name: Deploy
         run: sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --region us-east-1
-      - name: Get next version
+      - name: Determine Release Version
         uses: reecetech/version-increment@2024.4.3
         id: version
         with:
