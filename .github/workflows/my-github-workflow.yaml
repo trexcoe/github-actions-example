@@ -33,6 +33,8 @@ jobs:
         with:
           scheme: semver
           increment: patch
+      - name: Show Endpoint
+        run: sam list endpoints
       - name: Release
         uses: actions/create-release@v1
         env:
