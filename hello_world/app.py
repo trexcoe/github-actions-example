@@ -6,7 +6,7 @@ def lambda_handler(event, context):
             <!DOCTYPE html>
             <html>
                 <head>
-                    <title>Lambda Test Page</title>
+                    <title>Lambda Test</title>
                 </head>
                 <body>
                     <h1>Hello from Lambda!</h1>
