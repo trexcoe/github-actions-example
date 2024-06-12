@@ -9,7 +9,7 @@ def lambda_handler(event, context):
                     <title>Lambda Test</title>
                 </head>
                 <body>
-                    <h1>Hello from Lambda!</h1>
+                    <h1>Hello from Cloud CoP!</h1>
                 </body>
             </html>
             """
